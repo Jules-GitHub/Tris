@@ -1,4 +1,4 @@
-def downheap(liste, k, n):
+def tamiser(liste, k, n):
     while 2 * k + 1 < n:
         j = 2 * k + 1
         if j < n - 1 and liste[j] < liste[j + 1]:
@@ -9,17 +9,17 @@ def downheap(liste, k, n):
         else:
             break
 
-def heap_sort(liste):
+def tri_par_tas(liste):
     n = len(liste)
     for k in range(n // 2, -1, -1):
-        downheap(liste, k, n)
+        tamiser(liste, k, n)
     for k in range(n - 1, 0, -1):
         liste[0], liste[k] = liste[k], liste[0]
-        downheap(liste, 0, k)
+        tamiser(liste, 0, k)
     return liste
 
 liste = [1, 5, 3, 2, 4]
 
-liste = heap_sort(liste)
+liste = tri_par_tas(liste)
 
 print(liste)
